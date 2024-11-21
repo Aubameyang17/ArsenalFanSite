@@ -1,0 +1,102 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+{% block title %}Main{% endblock %}
+{% block link %}
+<link href="{% static 'main/css/style.css' %}" rel="stylesheet" type="text/css" media="all" />
+<link href="{% static 'main/css/shop.css' %}" rel="stylesheet" type="text/css" media="all" />
+{% endblock %}
+
+{% block logout %}
+    <a href="{% url 'lk' %}" class="button">Личный кабинет</a>
+{% endblock %}
+{% block login %}
+    <a href="{% url 'entry' %}" class="button">Вход</a>
+{% endblock %}
+
+{% block content %}
+<div class="all">
+<div class="text">
+  <h1>Официальная страница фан-клуба арсенала</h1>
+  <p>Добро пожаловать на официальную страницу фанатов футбольного клуба арсенал, здесь вы сможете найти все актуальные новости про наш любимый клуб, актуальный состав, сможете пообщаться с другими фанатами, а также узнать немного истории</p>
+</div>
+  <div class="Matches">
+    <h2>Последние матчи</h2>
+    <div class="slider-container">
+      <div class="slider">
+        <p><img src="{% static 'img/logo.png' %}" width="35" height="40.6"/> Арсенал 2 - 1 Брентфорд <img src="{% static 'img/Brent.png' %}" width="40" height="33.6"/></p>
+        <p><img src="{% static 'img/Brent.png' %}" width="40" height="33.6"/> Шефилд 0 - 6 Арсенал <img src="{% static 'img/logo.png' %}" width="35" height="40.6"/></p>
+        <p><img src="{% static 'img/logo.png' %}" width="35" height="40.6"/> Арсенал 4 - 1 Ньюкасл <img src="{% static 'img/New.png' %}" width="80" height="50"/></p>
+        <p><img src="{% static 'img/Porto.png' %}" width="30" height="40"/> Порту 1 - 0 Арсенал <img src="{% static 'img/logo.png' %}" width="35" height="40.6"/></p>
+      </div>
+      <button class="prev-button" aria-label="Посмотреть предыдущий слайд">&lt</button>
+      <button class="next-button" aria-label="Посмотреть следующий слайд">&gt</button>
+    </div>
+  </div>
+  <div class="News">
+    <h3>Новости</h3>
+    <li class="nobullet">
+      <details open>
+        <summary>Прессконференция Микеля Артеты</summary>
+        <ul class="nobullet">
+          <li class="nobullet">
+            <details>
+              <summary>о новостях команды:</summary>
+              <ul>«Не так много обновлений. У нас еще есть 24 часа, и мы пытаемся подготовить всех к завтрашнему дню. Томи сделал первую часть, Габи — нет. Посмотрим».<br /><br /></ul>
+            </details>
+          </li>
+          <li class="nobullet">
+            <details>
+              <summary>O матче с «Порту»:</summary>
+              <ul>«Нам определенно придется кое-что подправить, чтобы добиться большего. Это уровень Лиги чемпионов, вы встречаетесь с лучшими командами. Тот факт, что есть две игры, приводят в порядок твое мышление».<br /><br /></ul>
+            </details>
+          </li>
+          <li class="nobullet">
+            <details>
+              <summary>O болельщиках:</summary>
+              <ul>«В течение 96 минут принесите всю свою энергию, свой шум и давайте сделаем это вместе. Влияние, которое они могут оказать завтра, невероятно. Я не думаю, что они осознают это».<br /><br /></ul>
+            </details>
+          </li>
+          <li class="nobullet">
+            <details>
+              <summary>O важности единства и победы для Рамсдейла в субботу::</summary>
+              <ul>«Единство вокруг игроков потрясающее. Это органичн и естественно. Они действительно чувствуют друг друга. Когда у них есть шанс сделать что-то лучше и вытащить кого-то из неприятностей, они готовы это сделать».<br /><br /></ul>
+            </details>
+          </li>
+          <li class="nobullet">
+            <details>
+              <summary>Kакие чувства вызывают болельщики на трибунах:</summary>
+              <ul>«Это вызывает у меня желание выйти на поле и играть. Это ощущение, которое у нас есть. Завтра будет отличный вечер».<br /><br /></ul>
+            </details>
+          </li>
+          <li class="nobullet">
+            <details>
+              <summary>Чему «Арсенал» научится после поражения от «Порту»:</summary>
+              <ul>«У каждого противника есть свои сильные и слабые стороны, а также его стиль игры. Мы много раз играли в подобные игры в Лиге чемпионов. Мы просто сосредоточимся на себе и сделаем больше».<br /><br /></ul>
+            </details>
+          </li>
+          <li class="nobullet">
+            <details>
+              <summary>O возможности занять первое место и выйти в четвертьфинал перед международным перерывом:</summary>
+              <ul> «Мы должны сделать это завтра. Нам придется быть очень хорошей командой, чтобы добиться этого».<br /><br /></ul>
+            </details>
+          </li>
+          <li class="nobullet">
+            <details>
+              <summary>Как игровая карьера помогла вам познать большую атмосферу:</summary>
+              <ul>«Первое дерби, которое я сыграл «ПСЖ» - «Марсель». «Old Firm» были на трибунах и я был в шоке. Это может дать вам большой импульс».<br /><br /></ul>
+            </details>
+          </li>
+          <li class="nobullet">
+            <details>
+              <summary>Выйдут ли в старте Зинченко и Жезус:</summary>
+              <ul>«Все, кто тренировался, будут доступны для игры, потому что вам, возможно, придется играть через 5 минут или с самого начала. Ребята в хорошем состоянии».<br /><br /></ul>
+            </details>
+          </li>
+        </ul>
+      </details>
+    </li>
+    <img class="Newsimg" src="{% static 'img/conf.jpg' %}" vspace="10">
+  </div>
+</div>
+<script src="{% static 'main/JS/Main.js' %}"></script>
+{% endblock %}

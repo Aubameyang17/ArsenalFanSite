@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    {% block link %}{% endblock %}
+    <title>{% block title %}{% endblock %}</title>
+    <script src="{% static 'main/JS/photo.js' %}"></script>
+</head>
+<body>
+<header>
+    <div class="logo">
+    <a href=""><img src="{% static 'img/logo.png' %}" width="150" height="177"/></a>
+   </div>
+    {% if userlogin %}
+<button class="cart" id="cart" style="margin-left: 65%; background-color: transparent; border: none; margin-top: 1%">
+    <a href="{% url 'trashbox' %}">
+        <img class="cart__image" src="{% static 'img/kor.png' %}" alt="Cart" />
+  <div class="cart__num" id="cart_num">{{all}}</div>
+    </a>
+</button>
+    {% endif %}
+<div id="disconect" class="modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">Вы не авторизованы</h3>
+        <a href="#close" title="Close" class="close">×</a>
+      </div>
+      <div class="modal-body">
+        <p>У вас нет доступа к этому разделу, пожалуйста, войдите или зарегестрируйтесь на сайте чтобы пользоваться всеми его возможнастями</p>
+          <a href="{% url 'entry' %}" class="button" style="color:black; display:block; width:100px; text-align: center; font-family: Arial, Helvetica, sans-serif; font-size: 14px; padding: 12px 10px; text-decoration: none; border: none; background-color:#edc967;">Вход</a>
+          <a href="{% url 'registration' %}" class="button" style="color:black; display:block; width:100px; text-align: center; font-family: Arial, Helvetica, sans-serif; font-size: 14px; padding: 12px 10px; text-decoration: none; border: none;  background-color:#edc967;">Регистрация</a>
+      </div>
+    </div>
+  </div>
+</div>
+    {% if userlogin %}
+    {% block logout %} {% endblock %}
+    {% else %}
+    {% block login %} {% endblock %}
+    {% endif %}
+
+  <div class="wrap">
+ <div class="header">
+ <div class="nav">
+  <ul>
+   <li><a href="{% url 'home' %}">Главная</a></li>
+   <li><a href="{% url 'history' %}">Историческая</a></li>
+   <li><a href="{% url 'team' %}">Состав</a></li>
+    {% if userlogin %}
+    <li><a href="{% url 'shop' %}">Магазин</a></li>
+    {% else %}
+    <li><a href="#disconect">Магазин</a></li>
+    {% endif %}
+  </ul>
+ </div>
+ </div>
+ </div>
+</header>
+  <main>
+      <h2 style="margin-left:auto; margin-right:auto; width: 14em; color:#f3e4e4; margin-top:5%">Приветствуем вас {{userlogin}}</h2>
+  {% block content %}
+    {% endblock %}
+</main>
+</body>
+</html>

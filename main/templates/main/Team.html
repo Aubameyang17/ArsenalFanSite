@@ -1,0 +1,382 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+{% block title %}Team{% endblock %}
+{% block link %}
+<link href="{% static 'main/css/Team.css' %}" rel="stylesheet" type="text/css" media="all" />
+<link href="{% static 'main/css/shop.css' %}" rel="stylesheet" type="text/css" media="all" />
+{% endblock %}
+
+{% block logout %}
+    <a href="{% url 'lk' %}" class="button">Личный кабинет</a>
+{% endblock %}
+{% block login %}
+    <a href="{% url 'entry' %}" class="button">Вход</a>
+{% endblock %}
+
+{% block content %}
+<div class="teamtext">
+        <p>Состав футбольного клуба "Арсенал" на сезон 2023/2024</p>
+     </div>
+      <table class="stat-table sortable-table" cellpadding="0" cellspacing="0">
+        <colgroup>
+        <col width="60" />
+        <col width="" />
+        <col width="70" />
+        <col width="55" />
+        <col width="60" />
+        <col width="150" />
+        </colgroup>
+        <thead>
+        <tr>
+        <td data-sortable="true" data-sortorder="desc" data-sorttype="number"><span class="sort">Номер</span></td>
+        <td data-sortable="true" data-sortorder="desc" data-sorttype="string" class="name-td alLeft bordR"><span class="sort">Игрок</span></td>
+        <td data-sortable="true" data-sortorder="desc" data-sorttype="number"><span class="sort">Возраст</span></td>
+        <td data-sortable="true" data-sortorder="desc" data-sorttype="number"><span class="sort">Рост</span></td>
+        <td data-sortable="true" data-sortorder="desc" data-sorttype="number"><span class="sort">Вес</span></td>
+        <td data-sortable="true" data-sortorder="desc" data-sorttype="string"><span class="sort">Амплуа</span></td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td>1</td>
+        <td class="name-td alLeft bordR">
+        <i title="Англия"><img src="{% static 'main/img/eng.jpg' %}" width="20" height="12"></i>&nbsp;<a href="https://www.sports.ru/football/person/aaron-ramsdale/">Аарон Рэмсдейл</a>
+        </td>
+        <td>25</td>
+        <td>188</td>
+        <td>77</td>
+        <td title="вратарь">вратарь</td>
+        </tr>
+        <tr>
+        <td>22</td>
+        <td class="name-td alLeft bordR">
+        <i title="Испания"><img src="{% static 'main/img/spain.jpg' %}" width="20" height="12"></i>&nbsp;<a href="https://www.sports.ru/football/person/david-raya/">Давид Райя</a>
+        </td>
+        <td>28</td>
+        <td>183</td>
+        <td>80</td>
+        <td title="вратарь">вратарь</td>
+        </tr>
+        <tr>
+        <td>31</td>
+        <td class="name-td alLeft bordR">
+        <i title="Эстония"><img src="{% static 'main/img/estonia.jpg' %}" width="20" height="12"></i>&nbsp;<a href="https://www.sports.ru/football/person/karl-jakob-hein/">Карл Хейн</a>
+        </td>
+        <td>21</td>
+        <td>193</td>
+        <td>77</td>
+        <td title="вратарь">вратарь</td>
+        </tr>
+        <tr>
+        <td>35</td>
+        <td class="name-td alLeft bordR">
+        <i title="Украина"><img src="{% static 'main/img/ukrain.jpg' %}" width="20" height="12"></i>&nbsp;<a href="https://www.sports.ru/football/person/oleksandr-zinchenko/">Александр Зинченко</a>
+        </td>
+        <td>27</td>
+        <td>175</td>
+        <td>61</td>
+        <td title="защитник">защитник</td>
+        </tr>
+        <tr>
+        <td>4</td>
+        <td class="name-td alLeft bordR">
+        <i title="Англия"><img src="{% static 'main/img/eng.jpg' %}" width="20" height="12"></i>&nbsp;<a href="https://www.sports.ru/football/person/ben-white/">Бен Уайт</a>
+        </td>
+        <td>26</td>
+        <td>182</td>
+        <td>78</td>
+        <td title="защитник">защитник</td>
+        </tr>
+        <tr>
+        <td>2</td>
+        <td class="name-td alLeft bordR">
+        <i title="Франция"><img src="{% static 'main/img/france.jpg' %}" width="20" height="12"></i>&nbsp;<a href="https://www.sports.ru/football/person/william-saliba/">Вильям Салиба</a>
+        </td>
+        <td>23</td>
+        <td>193</td>
+        <td>85</td>
+        <td title="защитник">защитник</td>
+        </tr>
+        <tr>
+        <td>6</td>
+        <td class="name-td alLeft bordR">
+        <i title="Бразилия"><img src="{% static 'main/img/brasil.jpg' %}" width="20" height="12"></i>&nbsp;<a href="https://www.sports.ru/football/person/gabriel-magalyaes/"> Габриэл</a>
+        </td>
+        <td>26</td>
+        <td>189</td>
+        <td>78</td>
+        <td title="защитник">защитник</td>
+        </tr>
+        <tr>
+        <td>73</td>
+        <td class="name-td alLeft bordR">
+        <i title="Уэльс"><img src="{% static 'main/img/wls.jpg' %}" width="20" height="12"></i>&nbsp;<i title="Англия"><img src="{% static 'main/img/eng.jpg' %}" width="20" height="12"></i>&nbsp;<a href="https://www.sports.ru/tags/161148353/">Джеймс Свит</a>
+        </td>
+        <td>20</td>
+        <td>180</td>
+        <td>70</td>
+        <td title="защитник">защитник</td>
+        </tr>
+        <tr>
+        <td>76</td>
+        <td class="name-td alLeft bordR">
+        <i title="Англия"><img src="{% static 'main/img/eng.jpg' %}" width="20" height="12"></i>&nbsp;<a href="https://www.sports.ru/football/person/reuell-walters/">Руэлл Уолтерс</a>
+        </td>
+        <td>19</td>
+        <td>183</td>
+        <td>80</td>
+        <td title="защитник">защитник</td>
+        </tr>
+        <tr>
+        <td>17</td>
+        <td class="name-td alLeft bordR">
+        <i title="Португалия"><img src="{% static 'main/img/portugese.jpg' %}" width="20" height="12"></i>&nbsp;<a href="https://www.sports.ru/football/person/cedric-soares/">Седрик Соареш</a>
+        </td>
+        <td>32</td>
+        <td>172</td>
+        <td>67</td>
+        <td title="защитник">защитник</td>
+        </tr>
+        <tr>
+        <td>18</td>
+        <td class="name-td alLeft bordR">
+        <i title="Япония"><img src="{% static 'main/img/japen.jpg' %}" width="20" height="12"></i>&nbsp;<a href="https://www.sports.ru/football/person/takehiro-tomiyasu/">Такехиро Томиясу</a>
+        </td>
+        <td>25</td>
+        <td>188</td>
+        <td>70</td>
+        <td title="защитник">защитник</td>
+        </tr>
+        <tr>
+        <td>79</td>
+        <td class="name-td alLeft bordR">
+        <i title="Англия"><img src="{% static 'main/img/eng.jpg' %}" width="20" height="12"></i>&nbsp;<a href="https://www.sports.ru/tags/161148404/">Эйден Хевен</a>
+        </td>
+        <td>17</td>
+        <td>189</td>
+        <td>78</td>
+        <td title="защитник">защитник</td>
+        </tr>
+        <tr>
+        <td>12</td>
+        <td class="name-td alLeft bordR">
+        <i title="Нидерланды"><img src="{% static 'main/img/netherland.jpg' %}" width="20" height="12"></i>&nbsp;<a href="https://www.sports.ru/football/person/jurrien-timber/">Юрриен Тимбер</a>
+        </td>
+        <td>22</td>
+        <td>182</td>
+        <td>79</td>
+        <td title="защитник">защитник</td>
+        </tr>
+        <tr>
+        <td>15</td>
+        <td class="name-td alLeft bordR">
+        <i title="Польша"><img src="{% static 'main/img/poland.jpg' %}" width="20" height="12"></i>&nbsp;<a href="https://www.sports.ru/football/person/jakub-kiwior/">Якуб Кивер</a>
+        </td>
+        <td>24</td>
+        <td>182</td>
+        <td>70</td>
+        <td title="защитник">защитник</td>
+        </tr>
+        <tr>
+        <td>45</td>
+        <td class="name-td alLeft bordR">
+        <i title="Англия"><img src="{% static 'main/img/eng.jpg' %}" width="20" height="12"></i>&nbsp;<a href="https://www.sports.ru/football/person/amario-cozier-duberry/">Амарио Козьер-Дюберри</a>
+        </td>
+        <td>18</td>
+        <td>170</td>
+        <td>58</td>
+        <td title="полузащитник">полузащитник</td>
+        </tr>
+        <tr>
+        <td>55</td>
+        <td class="name-td alLeft bordR">
+        <i title="Англия"><img src="{% static 'main/img/eng.jpg' %}" width="20" height="12"></i>&nbsp;<a href="https://www.sports.ru/football/person/bradley-ibrahim-ibrahim/">Брэдли Ибрагим</a>
+        </td>
+        <td>19</td>
+        <td>180</td>
+        <td>70</td>
+        <td title="полузащитник">полузащитник</td>
+        </tr>
+        <tr>
+        <td>7</td>
+        <td class="name-td alLeft bordR">
+        <i title="Англия"><img src="{% static 'main/img/eng.jpg' %}" width="20" height="12"></i>&nbsp;<a href="https://www.sports.ru/football/person/bukayo-saka/">Букайо Сака</a>
+        </td>
+        <td>22</td>
+        <td>178</td>
+        <td>65</td>
+        <td title="полузащитник">полузащитник</td>
+        </tr>
+        <tr>
+        <td>11</td>
+        <td class="name-td alLeft bordR">
+        <i title="Бразилия"><img src="{% static 'main/img/brasil.jpg' %}" width="20" height="12"></i>&nbsp;<a href="https://www.sports.ru/football/person/gabriel-martinelli/">Габриэл Мартинелли</a>
+        </td>
+        <td>22</td>
+        <td>180</td>
+        <td>75</td>
+        <td title="полузащитник">полузащитник</td>
+        </tr>
+        <tr>
+        <td>41</td>
+        <td class="name-td alLeft bordR">
+        <i title="Англия"><img src="{% static 'main/img/eng.jpg' %}" width="20" height="12"></i>&nbsp;<a href="https://www.sports.ru/football/person/declan-rice/">Деклан Райс</a>
+        </td>
+        <td>25</td>
+        <td>185</td>
+        <td>80</td>
+        <td title="полузащитник">полузащитник</td>
+        </tr>
+        <tr>
+        <td>20</td>
+        <td class="name-td alLeft bordR">
+        <i title="Италия"><img src="{% static 'main/img/italy.jpg' %}" width="20" height="12"></i>&nbsp;<i class="icon-flag icon-flag_1296 flag-s flag-1296" title="Бразилия"></i>&nbsp;<a href="https://www.sports.ru/football/person/jorginho/"> Жоржиньо</a>
+        </td>
+        <td>32</td>
+        <td>180</td>
+        <td>65</td>
+        <td title="полузащитник">полузащитник</td>
+        </tr>
+        <tr>
+        <td>63</td>
+        <td class="name-td alLeft bordR">
+        <i title="Англия"><img src="{% static 'main/img/eng.jpg' %}" width="20" height="12"></i>&nbsp;<a href="https://www.sports.ru/football/person/ethan-chidiebere-nwaneri/">Итан Нванери</a>
+        </td>
+        <td>17</td>
+        <td>176</td>
+        <td>55</td>
+        <td title="полузащитник">полузащитник</td>
+        </tr>
+        <tr>
+        <td>29</td>
+        <td class="name-td alLeft bordR">
+        <i title="Германия"><img src="{% static 'main/img/german.jpg' %}" width="20" height="12"></i>&nbsp;<a href="https://www.sports.ru/football/person/kai-havertz/">Кай Хавертц</a>
+        </td>
+        <td>24</td>
+        <td>189</td>
+        <td>82</td>
+        <td title="полузащитник">полузащитник</td>
+        </tr>
+        <tr>
+        <td>19</td>
+        <td class="name-td alLeft bordR">
+        <i title="Бельгия"><img src="{% static 'main/img/belgum.jpg' %}" width="20" height="12"></i>&nbsp;<a href="https://www.sports.ru/football/person/leandro-trossard/">Леандро Троссард</a>
+        </td>
+        <td>29</td>
+        <td>172</td>
+        <td>61</td>
+        <td title="полузащитник">полузащитник</td>
+        </tr>
+        <tr>
+        <td>59</td>
+        <td class="name-td alLeft bordR">
+        <i title="Англия"><img src="{% static 'main/img/eng.jpg' %}" width="20" height="12"></i>&nbsp;<a href="https://www.sports.ru/tags/161146779/">Майлз Льюис-Скелли</a>
+        </td>
+        <td>17</td>
+        <td>178</td>
+        <td>60</td>
+        <td title="полузащитник">полузащитник</td>
+        </tr>
+        <tr>
+        <td></td>
+        <td class="name-td alLeft bordR">
+        <i title="Бразилия"><img src="{% static 'main/img/brasil.jpg' %}" width="20" height="12"></i>&nbsp;<a href="https://www.sports.ru/football/person/marquinhos-oliveira/"> Маркиньос</a>
+        </td>
+        <td>20</td>
+        <td>175</td>
+        <td>70</td>
+        <td title="полузащитник">полузащитник</td>
+        </tr>
+        <tr>
+        <td>8</td>
+        <td class="name-td alLeft bordR">
+        <i title="Норвегия"><img src="{% static 'main/img/norwey.jpg' %}" width="20" height="12"></i>&nbsp;<a href="https://www.sports.ru/football/person/martin-odegaard/">Мартин Эдегор</a>
+        </td>
+        <td>25</td>
+        <td>178</td>
+        <td>68</td>
+        <td title="полузащитник">полузащитник</td>
+        </tr>
+        <tr>
+        <td>40</td>
+        <td class="name-td alLeft bordR">
+        <i title="Португалия"><img src="{% static 'main/img/portugese.jpg' %}" width="20" height="12"></i>&nbsp;<a href="https://www.sports.ru/football/person/mauro-gomes-bandeira/">Мауру Бандейра</a>
+        </td>
+        <td>20</td>
+        <td>178</td>
+        <td>60</td>
+        <td title="полузащитник">полузащитник</td>
+        </tr>
+        <tr>
+        <td>25</td>
+        <td class="name-td alLeft bordR">
+        <i title="Египет"><img src="{% static 'main/img/egypt.jpg' %}" width="20" height="12"></i>&nbsp;<a href="https://www.sports.ru/football/person/mohamed-el-nenni/">Мохамед Эль-Ненни</a>
+        </td>
+        <td>31</td>
+        <td>180</td>
+        <td>71</td>
+        <td title="полузащитник">полузащитник</td>
+        </tr>
+        <tr>
+        <td>24</td>
+        <td class="name-td alLeft bordR">
+        <i title="Англия"><img src="{% static 'main/img/eng.jpg' %}" width="20" height="12"></i>&nbsp;<a href="https://www.sports.ru/football/person/reiss-nelson/">Рис Нелсон</a>
+        </td>
+        <td>24</td>
+        <td>175</td>
+        <td>71</td>
+        <td title="полузащитник">полузащитник</td>
+        </tr>
+        <tr>
+        <td>5</td>
+        <td class="name-td alLeft bordR">
+        <i title="Гана"><img src="{% static 'main/img/ghana.jpg' %}" width="20" height="12"></i>&nbsp;<a href="https://www.sports.ru/football/person/thomas-teye-partey/">Томас Парти</a>
+        </td>
+        <td>30</td>
+        <td>185</td>
+        <td>78</td>
+        <td title="полузащитник">полузащитник</td>
+        </tr>
+        <tr>
+        <td>21</td>
+        <td class="name-td alLeft bordR">
+        <i title="Португалия"><img src="{% static 'main/img/portugese.jpg' %}" width="20" height="12"></i>&nbsp;<a href="https://www.sports.ru/football/person/fabio-vieira/"> Фабиу Виейра</a>
+        </td>
+        <td>23</td>
+        <td>170</td>
+        <td>58</td>
+        <td title="полузащитник">полузащитник</td>
+        </tr>
+        <tr>
+        <td>10</td>
+        <td class="name-td alLeft bordR">
+        <i title="Англия"><img src="{% static 'main/img/eng.jpg' %}" width="20" height="12"></i>&nbsp;<a href="https://www.sports.ru/football/person/emile-smith-rowe/">Эмил Смит-Роу</a>
+        </td>
+        <td>23</td>
+        <td>183</td>
+        <td>72</td>
+        <td title="полузащитник">полузащитник</td>
+        </tr>
+        <tr>
+        <td>9</td>
+        <td class="name-td alLeft bordR">
+        <i title="Бразилия"><img src="{% static 'main/img/brasil.jpg' %}" width="20" height="12"></i>&nbsp;<a href="https://www.sports.ru/football/person/gabriel-jesus/"> Габриэл Жезус</a>
+        </td>
+        <td>26</td>
+        <td>175</td>
+        <td>71</td>
+        <td title="нападающий">нападающий</td>
+        </tr>
+        <tr>
+        <td>14</td>
+        <td class="name-td alLeft bordR">
+        <i title="Англия"><img src="{% static 'main/img/eng.jpg' %}" width="20" height="12"></i>&nbsp;<a href="https://www.sports.ru/football/person/edward-nketiah/">Эдвард Нкетиа</a>
+        </td>
+        <td>24</td>
+        <td>175</td>
+        <td>72</td>
+        <td title="нападающий">нападающий</td>
+        </tr>
+        </tbody>
+        </table>
+{% endblock %}

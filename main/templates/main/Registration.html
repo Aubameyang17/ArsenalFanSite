@@ -1,0 +1,81 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+{% block title %}Registration{% endblock %}
+{% block link %}
+<link href="{% static 'main/css/style.css' %}" rel="stylesheet" type="text/css" media="all" />
+<link href="{% static 'main/css/shop.css' %}" rel="stylesheet" type="text/css" media="all" />
+{% endblock %}
+
+{% block logout %}
+    <a href="{% url 'loggout' %}" class="button">Выход</a>
+{% endblock %}
+{% block login %}
+    <a href="{% url 'entry' %}" class="button">Вход</a>
+{% endblock %}
+
+{% block content %}
+<div class="text_registration">
+  <h1>Регистрация</h1>
+  <div class="form">
+  <form action="postuser" method="post" class="input-box">
+    {% csrf_token %}
+    <label for="name">Nickname:</label>
+    <input type="text" id="name" minlength="1" maxlength="100" name="login" placeholder="Ваш nickname.." required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" minlength="1" maxlength="100" name="email" placeholder="Ваш email.." required>
+
+    <label for="password">Пароль:</label>
+    <input type="password" id="password" minlength="1" maxlength="100" name="pasword" placeholder="Ваш пароль.." required>
+
+    <label for="password1">Повторите пароль:</label>
+    <input type="password" id="password1" minlength="1" maxlength="100" name="pasword1" placeholder="Ваш пароль.." required>
+    <input type="submit" value="Регистрация" />
+  </form>
+  </div>
+
+  <div id="emptydata" class="modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">Пустые поля</h3>
+        <a href="#close" title="Close" class="close">×</a>
+      </div>
+      <div class="modal-body">
+        <p>Поля необходимые для заполнения не заполнены, пожалуйста исправте это недорозумение</p>
+          </div>
+    </div>
+  </div>
+</div>
+
+  <div id="sameemail" class="modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">Повторение email</h3>
+        <a href="#close" title="Close" class="close">×</a>
+      </div>
+      <div class="modal-body">
+        <p>Пользователь с такой почтой уже создан, измените почту или войдите на сайт по существующей почте</p>
+        <a href="{% url 'entry' %}" class="button" style="color:black; display:block; width:100px; text-align: center; font-family: Arial, Helvetica, sans-serif; font-size: 14px; padding: 12px 10px; text-decoration: none; border: none; background-color:#edc967;">Вход</a>
+          </div>
+    </div>
+  </div>
+</div>
+
+  <div id="incorrectpassword" class="modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">Не верный пароль</h3>
+        <a href="#close" title="Close" class="close">×</a>
+      </div>
+      <div class="modal-body">
+        <p>Ваши пароли не совпадают, пожалуйста используйте одинаковые пароли</p>
+          </div>
+    </div>
+  </div>
+</div>
+
+</div>
+{% endblock %}

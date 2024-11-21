@@ -1,0 +1,36 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+{% block title %}History{% endblock %}
+{% block link %}
+<link href="{% static 'main/css/style.css' %}" rel="stylesheet" type="text/css" media="all" />
+<link href="{% static 'main/css/shop.css' %}" rel="stylesheet" type="text/css" media="all" />
+{% endblock %}
+
+{% block logout %}
+    <a href="{% url 'loggout' %}" class="button">Выход</a>
+{% endblock %}
+{% block login %}
+    <a href="{% url 'entry' %}" class="button">Вход</a>
+{% endblock %}
+
+{% block content %}
+<div class="text">
+  <h1>Личный кабинет пользователя</h1>
+  <div class="p1">
+      <p>
+      Ваш логин: {{user.login}}<br>
+      Ваш email: {{user.email}}<br>
+      Ваша Роль: {{user.role}}
+      </p>
+
+      {% for sale in sales %}
+      <p>Выши заказы<br>
+          Название товара: {{sale.id_product.name}}<br>
+      Цена: {{sale.price}}<br>
+      Дата оформления заказа: {{sale.date}}<br><br>
+      </p>
+      {% endfor %}
+  </div>
+
+</div>
+{% endblock %}

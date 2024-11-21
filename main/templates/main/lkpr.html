@@ -1,0 +1,81 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+{% block title %}History{% endblock %}
+{% block link %}
+<link href="{% static 'main/css/style.css' %}" rel="stylesheet" type="text/css" media="all" />
+<link href="{% static 'main/css/shop.css' %}" rel="stylesheet" type="text/css" media="all" />
+{% endblock %}
+{% block logout %}
+    <a href="{% url 'loggout' %}" class="button">Выход</a>
+{% endblock %}
+{% block login %}
+    <a href="{% url 'entry' %}" class="button">Вход</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="text">
+  <h1>Личный кабинет пользователя</h1>
+  <div class="p1">
+      <p>
+      Ваш логин: {{user.login}}<br>
+      Ваш email: {{user.email}}<br>
+      Ваша Роль: {{user.role}}<br>
+          Общая прибыль за все время(считается как сумма разниц цен за которую продали и купили): {{vigoda}}
+      </p>
+
+            <p>Ваши заказы<br>
+          {% for sale in sales %}
+      Название товара: {{sale.id_product.name}}<br>
+      Цена: {{sale.price}}<br>
+      Дата оформления заказа: {{sale.date}}<br><br>
+      {% endfor %}
+      </p>
+      <h2>Зарегестрированные пользователи</h2>
+      <div style="width: 200px; margin-left: auto; margin-right: 4.8em;">
+    <a href="#changerole" style="color:black">Изменить роль</a>
+    </div>
+          {% for per in users %}
+          <p>
+      Логин: {{per.login}}<br>
+      Еmail: {{per.email}}<br>
+      Роль: {{per.role}}
+      </p>
+          {% endfor %}
+  </div>
+
+    <div id="changerole" class="modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">Изменение параметров пользователя</h3>
+        <a href="#close" title="Close" class="close">×</a>
+      </div>
+      <div class="modal-body">
+    <form action="changerole" method="post" class="input-box" style="margin: 10px">
+    {% csrf_token %}
+    <label for="user">Выберите пользователя</label>
+    <select id="user" name="user">
+        {% for per in users %}
+              <option value={{per.login}}>{{per.login}}</option>
+        {% endfor %}
+          </select>
+
+    <label for="role">Выберите новую роль</label>
+    <select id="role" name="role">
+              <option value="User">Пользователь</option>
+            <option value="Manager">Менеджер</option>
+              <option value="Sys_Admin">Системный Администратор</option>
+          </select>
+        <div style="margin-top:10px">
+             <input type="submit" value="Изменить роль" />
+        </div>
+
+  </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+{% endblock %}

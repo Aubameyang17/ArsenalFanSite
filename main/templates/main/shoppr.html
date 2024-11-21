@@ -1,0 +1,94 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+{% block title %}Shop{% endblock %}
+{% block link %}
+<link href="{% static 'main/css/style.css' %}" rel="stylesheet" type="text/css" media="all" />
+<link href="{% static 'main/css/shop.css' %}" rel="stylesheet" type="text/css" media="all" />
+{% endblock %}
+
+{% block logout %}
+    <a href="{% url 'lk' %}" class="button">Личный кабинет</a>
+{% endblock %}
+{% block login %}
+    <a href="{% url 'entry' %}" class="button">Вход</a>
+{% endblock %}
+
+{% block content %}
+<h1 style="margin-left:auto; margin-right:auto; width: 23em; color:#f3e4e4;">Магазин футбольного клуба Арсенал</h1>
+<div style="width: 200px; margin-left: auto; margin-right: 4.8em; margin-bottom: 20px">
+    <a href="#Dopmodal" style="color:#f3e4e4;">Добавить товар</a>
+</div>
+<div id="Dopmodal" class="modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">Окно добавления товара</h3>
+        <a href="#close" title="Close" class="close">×</a>
+      </div>
+      <div class="modal-body">
+        <ul>
+<form action="newtovar" method="post" class="input-box" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label for="cost_on_sell">Цена на продажу</label>
+    <input type="number" id="cost_on_sell" minlength="1" maxlength="100" name="cost_on_sell" placeholder="Цена на продажу.." required>
+
+    <label for="cost_on_buy">Цена по которой купили</label>
+    <input type="number" id="cost_on_buy" minlength="1" maxlength="100" name="cost_on_buy" placeholder="Цена по которой купили.." required>
+
+    <label for="name">Название</label>
+    <input type="text" id="name" minlength="1" maxlength="100" name="name" placeholder="Назание.." required>
+
+    <label for="quantity_on_stock">Количество на складе</label>
+    <input type="number" id="quantity_on_stock" minlength="1" maxlength="100" name="quantity_on_stock" placeholder="Количество на складе.." required>
+
+    <label for="picture">Фотография</label>
+    <input type="file" id="picture" minlength="1" maxlength="100" name="picture" placeholder="Фото.." >
+    <input type="submit" value="Добавить товар в каталог" />
+  </form>
+ </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Сетка карточек товаров -->
+<div class="cards">
+    {% for el in products %}
+<!-- Карточка товара -->
+<div class="card">
+  <!-- Верхняя часть -->
+  <div class="card__top">
+    <!-- Изображение-ссылка товара -->
+    <a href="{% url 'tovar' el.id %}" class="card__image">
+      <img
+        src="{% static el.picture %}"
+        alt={{el.name}}
+      />
+    </a>
+  </div>
+  <!-- Нижняя часть -->
+  <div class="card__bottom">
+    <!-- Цены на товар-->
+    <div class="card__prices">
+      <div class="card__price card__price--common">{{el.cost_on_sell}}</div>
+    </div>
+       <div>
+            Категории:
+        {% for cat in catofprod %}
+            {% if el.id == cat.product.id %}
+            {{cat.categorie.categorie}}
+            {% endif %}
+            {% endfor %}
+           <br>
+        </div>
+    <!-- Ссылка-название товара -->
+    <a href="{% url 'tovar' el.id %}" class="card__title">
+        {{el.name}}
+    </a>
+    <!-- Кнопка добавить в корзину -->
+      <button class="card__add"><a href="{% url 'vkorzinu' el.id %}" style="color: #f3e4e4">В корзину</a></button>
+      <button class="card__add"><a href="{% url 'deltovar' el.id %}" style="color: #f3e4e4">Удалить товар</a></button>
+  </div>
+</div>
+{% endfor %}
+</div>
+{% endblock %}

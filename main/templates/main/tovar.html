@@ -1,0 +1,61 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+{% block title %}Shop{% endblock %}
+{% block link %}
+<link href="{% static 'main/css/style.css' %}" rel="stylesheet" type="text/css" media="all" />
+<link href="{% static 'main/css/shop.css' %}" rel="stylesheet" type="text/css" media="all" />
+<link href="{% static 'main/css/tovar.css' %}" rel="stylesheet" type="text/css" media="all" />
+{% endblock %}
+<button class="cart" id="cart">
+  <img class="cart__image" src="{% static 'main/img/kor.png' %}" alt="Cart" />
+  <div class="cart__num" id="cart_num">0</div>
+</button>
+{% block logout %}
+    <a href="{% url 'lk' %}" class="button">Личный кабинет</a>
+{% endblock %}
+{% block login %}
+    <a href="{% url 'entry' %}" class="button">Вход</a>
+{% endblock %}
+
+{% block content %}
+<h1 style="margin-left:auto; margin-right:auto; width: 17em; color:#f3e4e4;">Магазин футбольного клуба Арсенал</h1>
+<h2 style="margin-left:auto; margin-right:auto; width: 27em; color:#f3e4e4;">Страница товара {{tovar.name}}</h2>
+    <section id="product-page">
+    <div class="product-details">
+        <!--**Img*************************-->
+        <button class="prev-button" aria-label="Посмотреть предыдущий товар" style="font-size: 50px; font-weight: bold"><a href="{% url 'previos' tovar.id %}" style="color: #f3e4e4">&lt</a></button>
+        <button class="next-button" aria-label="Посмотреть следующий товар" style="font-size: 50px; font-weight: bold"><a href="{% url 'next' tovar.id %}" style="color: #f3e4e4">&gt</a></button>
+        <div class="product-img">
+
+        <!-- Swiper Slider -->
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+
+            <!--**1******-->
+            <div class="swiper-slide">
+                <img src="{% static tovar.picture %}" />
+            </div>
+            </div>
+        </div>
+        </div>
+        <!--**Text************************-->
+        <div class="product-text">
+            <!--category-->
+            <span class="product-category">Categorie</span>
+            <h3>{{tovar.name}}</h3>
+            <span class="product-price">${{tovar.cost_on_sell}}</span><br>
+            <span class="product-price">В наличии: {{tovar.quantity_on_stock}}</span>
+            <p>Некоторое описание
+                <br/>
+                Некоторое описание 2
+            </p>
+
+            <!--btn-->
+            <div class="product-button">
+                <a href="{% url 'vkorzinu' tovar.id %}" class="add-bag-btn">Добавить в Корзину</a>
+            </div>
+        </div>
+    </div>
+    </section>
+</html>
+{% endblock %}

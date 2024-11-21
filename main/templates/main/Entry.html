@@ -1,0 +1,66 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+{% block title %}Entry{% endblock %}
+
+{% block link %}
+<link href="{% static 'main/css/style.css' %}" rel="stylesheet" type="text/css" media="all" />
+<link href="{% static 'main/css/shop.css' %}" rel="stylesheet" type="text/css" media="all" />
+{% endblock %}
+
+
+{% block logout %}
+    <a href="{% url 'lk' %}" class="button">Личный кабинет</a>
+{% endblock %}
+{% block login %}
+    <a href="{% url 'entry' %}" class="button">Вход</a>
+{% endblock %}
+
+
+{% block content %}
+<div class="text_registration">
+  <h1>Вход</h1>
+  </div>
+  <div class="form">
+  <form action="postuserentry" method="post" class="input-box">
+    {% csrf_token %}
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" minlength="1" maxlength="100" name="email" placeholder="Ваш email.." required="">
+  
+    <label for="password">Пароль:</label>
+    <input type="password" id="password" minlength="1" maxlength="100" name="pasword" placeholder="Ваш пароль.." required="">
+    <input type="submit" value="Вход" style="color:black; display:block; width:100px; item-align: center; font-family: Arial, Helvetica, sans-serif; font-size: 14px; padding: 12px 10px; margin: 20px auto; text-decoration: none; border: none; margin-left:auto; background-color:#edc967;"/>
+    <a href="{% url 'registration' %}" style="color:black; display:block; width:100px; text-align: center; font-family: Arial, Helvetica, sans-serif; font-size: 14px; padding: 12px 10px; margin: 10px auto; text-decoration: none; border: none; margin-left:auto; background-color:#edc967;">Регистрация</a>
+  </form>
+
+    <div id="wrongpassword" class="modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">Неверный пароль</h3>
+        <a href="#close" title="Close" class="close">×</a>
+      </div>
+      <div class="modal-body">
+        <p>Это неверный пароль, пожалуйста попробуйте еще раз</p>
+          </div>
+    </div>
+  </div>
+</div>
+
+    <div id="wronguser" class="modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">Несуществующий пользователь</h3>
+        <a href="#close" title="Close" class="close">×</a>
+      </div>
+      <div class="modal-body">
+        <p>Пользователя с такой почтой не существует, укажите верно почту или зарегестрируйтесь</p>
+        <a href="{% url 'registration' %}" class="button" style="color:black; display:block; width:100px; text-align: center; font-family: Arial, Helvetica, sans-serif; font-size: 14px; padding: 12px 10px; text-decoration: none; border: none;  background-color:#edc967;">Регистрация</a>
+          </div>
+    </div>
+  </div>
+</div>
+
+  </div>
+{% endblock %}

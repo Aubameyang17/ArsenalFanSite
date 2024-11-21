@@ -1,0 +1,95 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+{% block title %}Shop{% endblock %}
+{% block link %}
+<link href="{% static 'main/css/style.css' %}" rel="stylesheet" type="text/css" media="all" />
+<link href="{% static 'main/css/shop.css' %}" rel="stylesheet" type="text/css" media="all" />
+{% endblock %}
+<button class="cart" id="cart">
+  <img class="cart__image" src="{% static 'main/img/kor.png' %}" alt="Cart" />
+  <div class="cart__num" id="cart_num">{{all}}</div>
+</button>
+{% block logout %}
+    <a href="{% url 'lk' %}" class="button">Личный кабинет</a>
+{% endblock %}
+{% block login %}
+    <a href="{% url 'entry' %}" class="button">Вход</a>
+{% endblock %}
+
+{% block content %}
+<h1 style="margin-left: 28%; color:#f3e4e4;">Ваша корзина</h1>
+
+<!-- Сетка карточек товаров -->
+<div class="cards">
+    {% for el in productsin %}
+    <div id="openModal" class="modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">{{el.id_user.login}}</h3>
+        <a href="#close" title="Close" class="close">×</a>
+      </div>
+      <div class="modal-body">
+        <ul>
+ <li>
+     <img
+        src="{% static el.id_product.picture %}"
+        alt={{el.id_product.picture}}
+      />
+ </li>
+ <li>Цена: {{el.id_product.cost_on_sell}}</li>
+ <li>{{el.id}}</li>
+ <li>В наличии: {{el.id_product.quantity_on_stock}}</li>
+ </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Карточка товара -->
+<div class="card">
+  <!-- Верхняя часть -->
+  <div class="card__top">
+    <!-- Изображение-ссылка товара -->
+    <a href="#openModal" class="card__image">
+      <img
+        src="{% static el.id_product.picture %}"
+        alt={{el.id_product.name}}
+      />
+    </a>
+  </div>
+  <!-- Нижняя часть -->
+  <div class="card__bottom">
+    <!-- Цены на товар-->
+    <div class="card__prices">
+      <div class="card__price card__price--common">{{el.id_product.cost_on_sell}}</div>
+    </div>
+    <!-- Ссылка-название товара -->
+    <a href="#openModal" class="card__title">
+        {{el.id_product.name}}
+    </a>
+      <button class="card__add"><a href="{% url 'deltovartrash' el.id %}" style="color: #f3e4e4">Удалить товар из корзины</a></button>
+  </div>
+</div>
+{% endfor %}
+    {% if productsin %}
+    <button class="card__add"><a href="{% url 'makesell' %}" style="color: #f3e4e4">Создать заказ</a></button>
+    {% else %}
+    <button class="card__add"><a href="#nettovara" style="color: #f3e4e4">Создать заказ</a></button>
+    {% endif %}
+
+    <div id="nettovara" class="modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">В корзине нет товаров</h3>
+        <a href="#close" title="Close" class="close">×</a>
+      </div>
+      <div class="modal-body">
+        <p>В корзине нет ни одного продукта, пожалуйста добавте хотя бы один товар в корзину перед тем как создавать заказ</p>
+          </div>
+    </div>
+  </div>
+</div>
+
+</div>
+{% endblock %}
